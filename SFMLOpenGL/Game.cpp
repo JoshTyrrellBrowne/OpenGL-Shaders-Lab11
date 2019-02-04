@@ -62,7 +62,7 @@ GLuint	index,		//Index to draw
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
 
-const string filename = "pepper.tga";
+const string filename = "cube.tga";
 
 int width; //width of texture
 int height; //height of texture
@@ -90,27 +90,27 @@ void Game::initialize()
 
 	/* Vertices counter-clockwise winding */
 	vertex[0].coordinate[0] = -0.5f;
-	vertex[0].coordinate[1] = -0.5f;
+	vertex[0].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[0].coordinate[2] = -0.5f;
 
 	vertex[1].coordinate[0] = -0.5f;
-	vertex[1].coordinate[1] = 0.5f;
+	vertex[1].coordinate[1] = 0.5f;		//TOP LEFT
 	vertex[1].coordinate[2] = -0.5f;
 
 	vertex[2].coordinate[0] = 0.5f;
-	vertex[2].coordinate[1] = 0.5f;
+	vertex[2].coordinate[1] = 0.5f;		//TOP RIGHT
 	vertex[2].coordinate[2] = -0.5f;
 
 	vertex[3].coordinate[0] = 0.5f;
-	vertex[3].coordinate[1] = 0.5f;
+	vertex[3].coordinate[1] = 0.5f;		//TOP RIGHT
 	vertex[3].coordinate[2] = -0.5f;
 
 	vertex[4].coordinate[0] = 0.5f;
-	vertex[4].coordinate[1] = -0.5f;
+	vertex[4].coordinate[1] = -0.5f;	//BOTTOM RIGHT
 	vertex[4].coordinate[2] = -0.5f;
 
-	vertex[5].coordinate[0] = -0.5f;
-	vertex[5].coordinate[1] = -0.5f;
+	vertex[5].coordinate[0] = -0.5f;	
+	vertex[5].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[5].coordinate[2] = -0.5f;
 
 	vertex[6].coordinate[0] = -0.5f;
@@ -232,30 +232,71 @@ void Game::initialize()
 	vertex[35].coordinate[0] = -0.5f;
 	vertex[35].coordinate[1] = 0.5f;
 	vertex[35].coordinate[2] = 0.5f;
+	/* texels */
+	//first face isnt actually drawn so doesnt matter
+	vertex[0].texel[0] = 0.0f;	//BOTTOM LEFT
+	vertex[0].texel[1] = 0.0f;
 
-	/*vertex[0].color[0] = 1.0f;
-	vertex[0].color[1] = 0.0f;
-	vertex[0].color[2] = 0.0f;
-	vertex[0].color[3] = 1.0f;
-
-	vertex[1].color[0] = 1.0f;
-	vertex[1].color[1] = 0.0f;
-	vertex[1].color[2] = 0.0f;
-	vertex[1].color[3] = 1.0f;
-
-	vertex[2].color[0] = 1.0f;
-	vertex[2].color[1] = 0.0f;
-	vertex[2].color[2] = 0.0f;
-	vertex[2].color[3] = 0.0f;*/
-
-	vertex[0].texel[0] = 0.5f;
-	vertex[0].texel[1] = 0.5f;
-
-	vertex[1].texel[0] = 1.0f;
+	vertex[1].texel[0] = 0.0f;	//TOP LEFT
 	vertex[1].texel[1] = 1.0f;
 
-	vertex[2].texel[0] = 1.0f;
-	vertex[2].texel[1] = 0.0f;
+	vertex[2].texel[0] = 1.0f;	//TOP RIGHT
+	vertex[2].texel[1] = 1.0f;
+
+	vertex[3].texel[0] = 1.0f;	//TOP RIGHT
+	vertex[3].texel[1] = 1.0f;
+
+	vertex[4].texel[0] = 1.0f;	//BOTTOM RIGHT
+	vertex[4].texel[1] = 0.0f;
+
+	vertex[5].texel[0] = 0.0f;	//BOTTOM LEFT
+	vertex[5].texel[1] = 0.0f;
+
+
+
+	vertex[6].texel[0] = 0.75f;	//BOTTOM LEFT
+	vertex[6].texel[1] = 0.25f;
+
+	vertex[7].texel[0] = 0.75f;	//TOP LEFT
+	vertex[7].texel[1] = 0.5f;
+
+	vertex[8].texel[0] = 1.0f;	//TOP RIGHT
+	vertex[8].texel[1] = 0.5f;
+
+	vertex[9].texel[0] = 1.0f;	//TOP RIGHT
+	vertex[9].texel[1] = 0.5f;
+
+	vertex[10].texel[0] = 1.0f;	//BOTTOM RIGHT
+	vertex[10].texel[1] = 0.25f;
+
+	vertex[11].texel[0] = 0.75;	//BOTTOM LEFT
+	vertex[11].texel[1] = 0.25f;
+
+
+	vertex[12].texel[0] = 0.0f;	//BOTTOM LEFT
+	vertex[12].texel[1] = 0.0f;
+
+	vertex[13].texel[0] = 0.0f;	//TOP LEFT
+	vertex[13].texel[1] = 1.0f;
+
+	vertex[14].texel[0] = 1.0f;	//TOP RIGHT
+	vertex[14].texel[1] = 1.0f;
+
+	vertex[15].texel[0] = 1.0f;	//TOP RIGHT
+	vertex[15].texel[1] = 1.0f;
+
+	vertex[16].texel[0] = 1.0f;	//BOTTOM RIGHT
+	vertex[16].texel[1] = 0.0f;
+
+	vertex[17].texel[0] = 0.0f;	//BOTTOM LEFT
+	vertex[17].texel[1] = 0.0f;
+	
+
+	/*for (int i = 0; i < 36; i++)
+	{
+		vertex[i].texel[0] = 0.5;
+		vertex[i].texel[1] = 0.5;
+	}*/
 
 	/*Index of Poly / Triangle to Draw */
 	for (int i = 0; i < sizeof(triangles); i++)
@@ -358,8 +399,6 @@ void Game::initialize()
 	// https://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml
 	glUseProgram(progID);
 
-	width = 8;
-	height = 8;
 	img_data = stbi_load(filename.c_str(), &width, &height, &comp_count, 4);
 
 	if (img_data == NULL)
@@ -373,8 +412,8 @@ void Game::initialize()
 
 	//Wrap around
 	//https://www.khronos.org/opengles/sdk/docs/man/xhtml/glTexParameter.xml
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 
 	//Filtering
 	//https://www.khronos.org/opengles/sdk/docs/man/xhtml/glTexParameter.xml
@@ -463,9 +502,9 @@ void Game::render()
 
 	// Set pointers for each parameter
 	// https://www.opengl.org/sdk/docs/man4/html/glVertexAttribPointer.xhtml
-	glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vert), 0);
-	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vert), 0);
-	glVertexAttribPointer(texelID, 2, GL_FLOAT, GL_FALSE, sizeof(Vert), 0);
+	glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vert), 0); // the last parameter here is the "step" to tell where to start from in vert struct
+	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vert), (void*)(sizeof(float) * 3));
+	glVertexAttribPointer(texelID, 2, GL_FLOAT, GL_FALSE, sizeof(Vert), (void*)(sizeof(float) * 7));
 
 	//Enable Arrays
 	glEnableVertexAttribArray(positionID);
