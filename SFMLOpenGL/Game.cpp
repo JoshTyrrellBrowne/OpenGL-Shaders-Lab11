@@ -62,7 +62,7 @@ GLuint	index,		//Index to draw
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
 
-const string filename = "texture.tga";
+const string filename = "pepper.tga";
 
 int width; //width of texture
 int height; //height of texture
@@ -358,6 +358,8 @@ void Game::initialize()
 	// https://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml
 	glUseProgram(progID);
 
+	width = 8;
+	height = 8;
 	img_data = stbi_load(filename.c_str(), &width, &height, &comp_count, 4);
 
 	if (img_data == NULL)
