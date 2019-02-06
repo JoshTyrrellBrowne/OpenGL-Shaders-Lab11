@@ -34,6 +34,7 @@ private:
 	void unload();
 	void checkKeyInput();
 	void updateResultVerts();
+	void setTexels(sf::Vector2f t_centerPoint, int t_i);
 
 	MyVector3 tempVector{ 0,0,0 };
 

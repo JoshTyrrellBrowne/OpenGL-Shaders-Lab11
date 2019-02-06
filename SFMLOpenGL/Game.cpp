@@ -48,21 +48,21 @@ GLubyte triangles[36];
 
 /* Variable to hold the VBO identifier and shader data */
 GLuint	index,		//Index to draw
-		vsid,		//Vertex Shader ID
-		fsid,		//Fragment Shader ID
-		progID,		//Program ID
-		vao = 0,	//Vertex Array ID
-		vbo[1],		// Vertex Buffer ID
-		positionID, //Position ID
-		colorID,	// Color ID
-		to,			// Texture ID 1 to 32
-		textureID,	//Texture ID
-		texelID;	// Texel ID
+vsid,		//Vertex Shader ID
+fsid,		//Fragment Shader ID
+progID,		//Program ID
+vao = 0,	//Vertex Array ID
+vbo[1],		// Vertex Buffer ID
+positionID, //Position ID
+colorID,	// Color ID
+to,			// Texture ID 1 to 32
+textureID,	//Texture ID
+texelID;	// Texel ID
 
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
 
-const string filename = "cube.tga";
+const string filename = "mycube.tga";
 
 int width; //width of texture
 int height; //height of texture
@@ -109,7 +109,7 @@ void Game::initialize()
 	vertex[4].coordinate[1] = -0.5f;	//BOTTOM RIGHT
 	vertex[4].coordinate[2] = -0.5f;
 
-	vertex[5].coordinate[0] = -0.5f;	
+	vertex[5].coordinate[0] = -0.5f;
 	vertex[5].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[5].coordinate[2] = -0.5f;
 
@@ -234,63 +234,73 @@ void Game::initialize()
 	vertex[35].coordinate[2] = 0.5f;
 	/* texels */
 	//first face isnt actually drawn so doesnt matter
-	vertex[0].texel[0] = 0.0f;	//BOTTOM LEFT
-	vertex[0].texel[1] = 0.0f;
+	//vertex[0].texel[0] = 0.0f;	//BOTTOM LEFT
+	//vertex[0].texel[1] = 0.0f;
 
-	vertex[1].texel[0] = 0.0f;	//TOP LEFT
-	vertex[1].texel[1] = 1.0f;
+	//vertex[1].texel[0] = 0.0f;	//TOP LEFT
+	//vertex[1].texel[1] = 1.0f;
 
-	vertex[2].texel[0] = 1.0f;	//TOP RIGHT
-	vertex[2].texel[1] = 1.0f;
+	//vertex[2].texel[0] = 1.0f;	//TOP RIGHT
+	//vertex[2].texel[1] = 1.0f;
 
-	vertex[3].texel[0] = 1.0f;	//TOP RIGHT
-	vertex[3].texel[1] = 1.0f;
+	//vertex[3].texel[0] = 1.0f;	//TOP RIGHT
+	//vertex[3].texel[1] = 1.0f;
 
-	vertex[4].texel[0] = 1.0f;	//BOTTOM RIGHT
-	vertex[4].texel[1] = 0.0f;
+	//vertex[4].texel[0] = 1.0f;	//BOTTOM RIGHT
+	//vertex[4].texel[1] = 0.0f;
 
-	vertex[5].texel[0] = 0.0f;	//BOTTOM LEFT
-	vertex[5].texel[1] = 0.0f;
-
-
-
-	vertex[6].texel[0] = 0.75f;	//BOTTOM LEFT
-	vertex[6].texel[1] = 0.25f;
-
-	vertex[7].texel[0] = 0.75f;	//TOP LEFT
-	vertex[7].texel[1] = 0.5f;
-
-	vertex[8].texel[0] = 1.0f;	//TOP RIGHT
-	vertex[8].texel[1] = 0.5f;
-
-	vertex[9].texel[0] = 1.0f;	//TOP RIGHT
-	vertex[9].texel[1] = 0.5f;
-
-	vertex[10].texel[0] = 1.0f;	//BOTTOM RIGHT
-	vertex[10].texel[1] = 0.25f;
-
-	vertex[11].texel[0] = 0.75;	//BOTTOM LEFT
-	vertex[11].texel[1] = 0.25f;
+	//vertex[5].texel[0] = 0.0f;	//BOTTOM LEFT
+	//vertex[5].texel[1] = 0.0f;
 
 
-	vertex[12].texel[0] = 0.0f;	//BOTTOM LEFT
-	vertex[12].texel[1] = 0.0f;
 
-	vertex[13].texel[0] = 0.0f;	//TOP LEFT
-	vertex[13].texel[1] = 1.0f;
+	//vertex[6].texel[0] = 0.75f;	//BOTTOM LEFT
+	//vertex[6].texel[1] = 0.25f;
 
-	vertex[14].texel[0] = 1.0f;	//TOP RIGHT
-	vertex[14].texel[1] = 1.0f;
+	//vertex[7].texel[0] = 0.75f;	//TOP LEFT
+	//vertex[7].texel[1] = 0.5f;
 
-	vertex[15].texel[0] = 1.0f;	//TOP RIGHT
-	vertex[15].texel[1] = 1.0f;
+	//vertex[8].texel[0] = 1.0f;	//TOP RIGHT
+	//vertex[8].texel[1] = 0.5f;
 
-	vertex[16].texel[0] = 1.0f;	//BOTTOM RIGHT
-	vertex[16].texel[1] = 0.0f;
+	//vertex[9].texel[0] = 1.0f;	//TOP RIGHT
+	//vertex[9].texel[1] = 0.5f;
 
-	vertex[17].texel[0] = 0.0f;	//BOTTOM LEFT
-	vertex[17].texel[1] = 0.0f;
-	
+	//vertex[10].texel[0] = 1.0f;	//BOTTOM RIGHT
+	//vertex[10].texel[1] = 0.25f;
+
+	//vertex[11].texel[0] = 0.75;	//BOTTOM LEFT
+	//vertex[11].texel[1] = 0.25f;
+
+
+	//vertex[12].texel[0] = 0.0f;	//BOTTOM LEFT
+	//vertex[12].texel[1] = 0.0f;
+
+	//vertex[13].texel[0] = 0.0f;	//TOP LEFT
+	//vertex[13].texel[1] = 1.0f;
+
+	//vertex[14].texel[0] = 1.0f;	//TOP RIGHT
+	//vertex[14].texel[1] = 1.0f;
+
+	//vertex[15].texel[0] = 1.0f;	//TOP RIGHT
+	//vertex[15].texel[1] = 1.0f;
+
+	//vertex[16].texel[0] = 1.0f;	//BOTTOM RIGHT
+	//vertex[16].texel[1] = 0.0f;
+
+	//vertex[17].texel[0] = 0.0f;	//BOTTOM LEFT
+	//vertex[17].texel[1] = 0.0f;
+
+	int startIndex = 0;
+	setTexels(sf::Vector2f(0.125, 0.375), (startIndex + (6 * 0)));// sides
+	setTexels(sf::Vector2f(0.375, 0.375), (startIndex + (6 * 1)));
+	setTexels(sf::Vector2f(0.625, 0.375), (startIndex + (6 * 2)));
+	setTexels(sf::Vector2f(0.875, 0.375), (startIndex + (6 * 3)));
+
+	setTexels(sf::Vector2f(0.375, 0.625), (startIndex + (6 * 4)));// top
+
+	setTexels(sf::Vector2f(0.375, 0.125), (startIndex + (6 * 5)));// bottom
+
 
 	/*for (int i = 0; i < 36; i++)
 	{
@@ -482,6 +492,11 @@ void Game::render()
 	DEBUG_MSG("Drawing...");
 #endif
 
+	/* Culling bizzz */
+	/*glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CW);
+	glCullFace(GL_FRONT);*/
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -496,7 +511,7 @@ void Game::render()
 	/*	Draw Triangle from VBO	(set where to start from as VBO can contain
 		model components that 'are' and 'are not' to be drawn )	*/
 
-	//Set Active Texture .... 32
+		//Set Active Texture .... 32
 	glActiveTexture(GL_TEXTURE0);
 	glUniform1i(textureID, 0);
 
@@ -759,5 +774,30 @@ void Game::updateResultVerts()
 		resultVerts[i].coordinate[1] = vertex[i].coordinate[1] + displacementVerts.coordinate[1];
 		resultVerts[i].coordinate[2] = vertex[i].coordinate[2] + displacementVerts.coordinate[2];
 	}
+}
+
+void Game::setTexels(sf::Vector2f t_centerPoint, int t_i)
+{
+	// t_centerPoint is the center coords for this cubes texture face
+	// t_i is the index for the starting vertex in the array
+
+	vertex[t_i].texel[0] = (t_centerPoint.x - 0.125);	//BOTTOM LEFT
+	vertex[t_i].texel[1] = (t_centerPoint.y - 0.125);
+
+	vertex[t_i + 1].texel[0] = (t_centerPoint.x - 0.125); //TOP LEFT
+	vertex[t_i + 1].texel[1] = (t_centerPoint.y + 0.125);
+
+	vertex[t_i + 2].texel[0] = (t_centerPoint.x + 0.125); //TOP RIGHT
+	vertex[t_i + 2].texel[1] = (t_centerPoint.y + 0.125);
+
+	vertex[t_i + 3].texel[0] = (t_centerPoint.x + 0.125); //TOP RIGHT
+	vertex[t_i + 3].texel[1] = (t_centerPoint.y + 0.125);
+
+	vertex[t_i + 4].texel[0] = (t_centerPoint.x + 0.125); //BOTTOM RIGHT
+	vertex[t_i + 4].texel[1] = (t_centerPoint.y - 0.125);
+
+	vertex[t_i + 5].texel[0] = (t_centerPoint.x - 0.125);	//BOTTOM LEFT
+	vertex[t_i + 5].texel[1] = (t_centerPoint.y - 0.125);
+
 }
 
