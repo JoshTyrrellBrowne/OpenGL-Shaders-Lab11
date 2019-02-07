@@ -62,7 +62,7 @@ texelID;	// Texel ID
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
 
-const string filename = "mycube.tga";
+const string filename = "jellybeans.tga";
 
 int width; //width of texture
 int height; //height of texture
@@ -89,30 +89,43 @@ void Game::initialize()
 	displacementVerts.coordinate[2] = 0.1;
 
 	/* Vertices counter-clockwise winding */
-	//back face
-	vertex[0].coordinate[0] = -0.5f;
-	vertex[0].coordinate[1] = -0.5f;	//BOTTOM LEFT
+	//back face (changed direction)
+	vertex[0].coordinate[0] = 0.5f;
+	vertex[0].coordinate[1] = 0.5f;		//TOP RIGHT
 	vertex[0].coordinate[2] = -0.5f;
+	//vertex[0].coordinate[0] = -0.5f;
+	//vertex[0].coordinate[1] = -0.5f;	//BOTTOM LEFT
+	//vertex[0].coordinate[2] = -0.5f;
 
 	vertex[1].coordinate[0] = -0.5f;
 	vertex[1].coordinate[1] = 0.5f;		//TOP LEFT
 	vertex[1].coordinate[2] = -0.5f;
 
-	vertex[2].coordinate[0] = 0.5f;
-	vertex[2].coordinate[1] = 0.5f;		//TOP RIGHT
+	vertex[2].coordinate[0] = -0.5f;
+	vertex[2].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[2].coordinate[2] = -0.5f;
+	//vertex[2].coordinate[0] = 0.5f;
+	//vertex[2].coordinate[1] = 0.5f;		//TOP RIGHT
+	//vertex[2].coordinate[2] = -0.5f;
 
-	vertex[3].coordinate[0] = 0.5f;
-	vertex[3].coordinate[1] = 0.5f;		//TOP RIGHT
+	vertex[3].coordinate[0] = -0.5f;
+	vertex[3].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[3].coordinate[2] = -0.5f;
+	//vertex[3].coordinate[0] = 0.5f;
+	//vertex[3].coordinate[1] = 0.5f;		//TOP RIGHT
+	//vertex[3].coordinate[2] = -0.5f;
 
 	vertex[4].coordinate[0] = 0.5f;
 	vertex[4].coordinate[1] = -0.5f;	//BOTTOM RIGHT
 	vertex[4].coordinate[2] = -0.5f;
 
-	vertex[5].coordinate[0] = -0.5f;
-	vertex[5].coordinate[1] = -0.5f;	//BOTTOM LEFT
+	vertex[5].coordinate[0] = 0.5f;
+	vertex[5].coordinate[1] = 0.5f;		//TOP RIGHT
 	vertex[5].coordinate[2] = -0.5f;
+	//vertex[5].coordinate[0] = -0.5f;
+	//vertex[5].coordinate[1] = -0.5f;	//BOTTOM LEFT
+	//vertex[5].coordinate[2] = -0.5f;
+
 	//front face
 	vertex[6].coordinate[0] = -0.5f;
 	vertex[6].coordinate[1] = -0.5f;	//BOTTOM LEFT
@@ -187,55 +200,79 @@ void Game::initialize()
 	vertex[23].coordinate[0] = 0.5f;
 	vertex[23].coordinate[1] = -0.5f;	//FRONT BOTTOM
 	vertex[23].coordinate[2] = 0.5f;
-	//BOTTOM FACE
-	vertex[24].coordinate[0] = -0.5f;
-	vertex[24].coordinate[1] = -0.5f;	//LEFT BACK
-	vertex[24].coordinate[2] = -0.5f;
+	//BOTTOM FACE (change direction)
+	vertex[24].coordinate[0] = 0.5f;
+	vertex[24].coordinate[1] = -0.5f;	//RIGHT FRONT
+	vertex[24].coordinate[2] = 0.5f;
+	//vertex[24].coordinate[0] = -0.5f;
+	//vertex[24].coordinate[1] = -0.5f;	//LEFT BACK
+	//vertex[24].coordinate[2] = -0.5f;
 
 	vertex[25].coordinate[0] = 0.5f;
 	vertex[25].coordinate[1] = -0.5f;	//RIGHT BACK		
 	vertex[25].coordinate[2] = -0.5f;
 
-	vertex[26].coordinate[0] = 0.5f;
-	vertex[26].coordinate[1] = -0.5f;	//RIGHT FRONT
-	vertex[26].coordinate[2] = 0.5f;
+	vertex[26].coordinate[0] = -0.5f;
+	vertex[26].coordinate[1] = -0.5f;	//LEFT BACK
+	vertex[26].coordinate[2] = -0.5f;
+	//vertex[26].coordinate[0] = 0.5f;
+	//vertex[26].coordinate[1] = -0.5f;	//RIGHT FRONT
+	//vertex[26].coordinate[2] = 0.5f;
 
-	vertex[27].coordinate[0] = 0.5f;
-	vertex[27].coordinate[1] = -0.5f;	//RIGHT FRONT
-	vertex[27].coordinate[2] = 0.5f;
+	vertex[27].coordinate[0] = -0.5f;
+	vertex[27].coordinate[1] = -0.5f;	//LEFT BACK
+	vertex[27].coordinate[2] = -0.5f;
+	//vertex[27].coordinate[0] = 0.5f;
+	//vertex[27].coordinate[1] = -0.5f;	//RIGHT FRONT
+	//vertex[27].coordinate[2] = 0.5f;
 
 	vertex[28].coordinate[0] = -0.5f;
 	vertex[28].coordinate[1] = -0.5f;	//LEFT FRONT
 	vertex[28].coordinate[2] = 0.5f;
 
-	vertex[29].coordinate[0] = -0.5f;
-	vertex[29].coordinate[1] = -0.5f;	//LEFT BACK
-	vertex[29].coordinate[2] = -0.5f;
+	vertex[29].coordinate[0] = 0.5f;
+	vertex[29].coordinate[1] = -0.5f;	//RIGHT FRONT
+	vertex[29].coordinate[2] = 0.5f;
+	//vertex[29].coordinate[0] = -0.5f;
+	//vertex[29].coordinate[1] = -0.5f;	//LEFT BACK
+	//vertex[29].coordinate[2] = -0.5f;
 
-	//TOP FACE
-	vertex[30].coordinate[0] = -0.5f;
-	vertex[30].coordinate[1] = 0.5f;	//LEFT FRONT
-	vertex[30].coordinate[2] = 0.5f;
+	//TOP FACE (change direction)
+	vertex[30].coordinate[0] = 0.5f;
+	vertex[30].coordinate[1] = 0.5f;	//RIGHT BACK
+	vertex[30].coordinate[2] = -0.5f;
+	//vertex[30].coordinate[0] = -0.5f;
+	//vertex[30].coordinate[1] = 0.5f;	//LEFT FRONT
+	//vertex[30].coordinate[2] = 0.5f;
 
 	vertex[31].coordinate[0] = 0.5f;
 	vertex[31].coordinate[1] = 0.5f;	//RIGHT FRONT
 	vertex[31].coordinate[2] = 0.5f;
 
-	vertex[32].coordinate[0] = 0.5f;
-	vertex[32].coordinate[1] = 0.5f;	//RIGHT BACK
-	vertex[32].coordinate[2] = -0.5f;
+	vertex[32].coordinate[0] = -0.5f;
+	vertex[32].coordinate[1] = 0.5f;	//LEFT FRONT
+	vertex[32].coordinate[2] = 0.5f;
+	//vertex[32].coordinate[0] = 0.5f;
+	//vertex[32].coordinate[1] = 0.5f;	//RIGHT BACK
+	//vertex[32].coordinate[2] = -0.5f;
 
-	vertex[33].coordinate[0] = 0.5f;
-	vertex[33].coordinate[1] = 0.5f;	//RIGHT BACK
-	vertex[33].coordinate[2] = -0.5f;
+	vertex[33].coordinate[0] = -0.5f;
+	vertex[33].coordinate[1] = 0.5f;	//LEFT FRONT
+	vertex[33].coordinate[2] = 0.5f;
+	//vertex[33].coordinate[0] = 0.5f;
+	//vertex[33].coordinate[1] = 0.5f;	//RIGHT BACK
+	//vertex[33].coordinate[2] = -0.5f;
 
 	vertex[34].coordinate[0] = -0.5f;
 	vertex[34].coordinate[1] = 0.5f;	//LEFT BACK
 	vertex[34].coordinate[2] = -0.5f;
 
-	vertex[35].coordinate[0] = -0.5f;
-	vertex[35].coordinate[1] = 0.5f;	//LEFT FRONT
-	vertex[35].coordinate[2] = 0.5f;
+	vertex[35].coordinate[0] = 0.5f;
+	vertex[35].coordinate[1] = 0.5f;	//RIGHT BACK
+	vertex[35].coordinate[2] = -0.5f;
+	//vertex[35].coordinate[0] = -0.5f;
+	//vertex[35].coordinate[1] = 0.5f;	//LEFT FRONT
+	//vertex[35].coordinate[2] = 0.5f;
 	
 
 	/* SETTING TEXELS */
