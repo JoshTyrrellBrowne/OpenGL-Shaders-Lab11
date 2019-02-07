@@ -89,6 +89,7 @@ void Game::initialize()
 	displacementVerts.coordinate[2] = 0.1;
 
 	/* Vertices counter-clockwise winding */
+	//back face
 	vertex[0].coordinate[0] = -0.5f;
 	vertex[0].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[0].coordinate[2] = -0.5f;
@@ -112,185 +113,132 @@ void Game::initialize()
 	vertex[5].coordinate[0] = -0.5f;
 	vertex[5].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[5].coordinate[2] = -0.5f;
-
+	//front face
 	vertex[6].coordinate[0] = -0.5f;
-	vertex[6].coordinate[1] = -0.5f;
+	vertex[6].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[6].coordinate[2] = 0.5f;
 
 	vertex[7].coordinate[0] = -0.5f;
-	vertex[7].coordinate[1] = 0.5f;
+	vertex[7].coordinate[1] = 0.5f;		//TOP LEFT
 	vertex[7].coordinate[2] = 0.5f;
 
 	vertex[8].coordinate[0] = 0.5f;
-	vertex[8].coordinate[1] = 0.5f;
+	vertex[8].coordinate[1] = 0.5f;		//TOP RIGHT
 	vertex[8].coordinate[2] = 0.5f;
 
 	vertex[9].coordinate[0] = 0.5f;
-	vertex[9].coordinate[1] = 0.5f;
+	vertex[9].coordinate[1] = 0.5f;		//TOP RIGHT
 	vertex[9].coordinate[2] = 0.5f;
 
 	vertex[10].coordinate[0] = 0.5f;
-	vertex[10].coordinate[1] = -0.5f;
+	vertex[10].coordinate[1] = -0.5f;	//BOTTOM RIGHT
 	vertex[10].coordinate[2] = 0.5f;
 
 	vertex[11].coordinate[0] = -0.5f;
-	vertex[11].coordinate[1] = -0.5f;
+	vertex[11].coordinate[1] = -0.5f;	//BOTTOM LEFT
 	vertex[11].coordinate[2] = 0.5f;
 	//=====================================================
+	// left wall
 	vertex[12].coordinate[0] = -0.5f;
-	vertex[12].coordinate[1] = -0.5f;
+	vertex[12].coordinate[1] = -0.5f;	//BACK BOTTOM
 	vertex[12].coordinate[2] = -0.5f;
 
 	vertex[13].coordinate[0] = -0.5f;
-	vertex[13].coordinate[1] = 0.5f;		// left wall
+	vertex[13].coordinate[1] = 0.5f;	//BACK TOP		
 	vertex[13].coordinate[2] = -0.5f;
 
 	vertex[14].coordinate[0] = -0.5f;
-	vertex[14].coordinate[1] = 0.5f;
+	vertex[14].coordinate[1] = 0.5f;	//FRONT TOP
 	vertex[14].coordinate[2] = 0.5f;
 
 	vertex[15].coordinate[0] = -0.5f;
-	vertex[15].coordinate[1] = 0.5f;
+	vertex[15].coordinate[1] = 0.5f;	//FRONT TOP
 	vertex[15].coordinate[2] = 0.5f;
 
 	vertex[16].coordinate[0] = -0.5f;
-	vertex[16].coordinate[1] = -0.5f;
+	vertex[16].coordinate[1] = -0.5f;	//FRONT BOTTOM
 	vertex[16].coordinate[2] = 0.5f;
 
 	vertex[17].coordinate[0] = -0.5f;
-	vertex[17].coordinate[1] = -0.5f;
+	vertex[17].coordinate[1] = -0.5f;	//BACK BOTTOM
 	vertex[17].coordinate[2] = -0.5f;
 
+	//RIGHT WALL
 	vertex[18].coordinate[0] = 0.5f;
-	vertex[18].coordinate[1] = -0.5f;
+	vertex[18].coordinate[1] = -0.5f;	//FRONT BOTTOM
 	vertex[18].coordinate[2] = 0.5f;
 
 	vertex[19].coordinate[0] = 0.5f;
-	vertex[19].coordinate[1] = 0.5f;
+	vertex[19].coordinate[1] = 0.5f;	//FRONT TOP
 	vertex[19].coordinate[2] = 0.5f;
 
 	vertex[20].coordinate[0] = 0.5f;
-	vertex[20].coordinate[1] = 0.5f;
+	vertex[20].coordinate[1] = 0.5f;	//BACK TOP 
 	vertex[20].coordinate[2] = -0.5f;
 
 	vertex[21].coordinate[0] = 0.5f;
-	vertex[21].coordinate[1] = 0.5f;
+	vertex[21].coordinate[1] = 0.5f;	//BACK TOP
 	vertex[21].coordinate[2] = -0.5f;
 
 	vertex[22].coordinate[0] = 0.5f;
-	vertex[22].coordinate[1] = -0.5f;
+	vertex[22].coordinate[1] = -0.5f;	//BACK BOTTOM
 	vertex[22].coordinate[2] = -0.5f;
 
 	vertex[23].coordinate[0] = 0.5f;
-	vertex[23].coordinate[1] = -0.5f;
+	vertex[23].coordinate[1] = -0.5f;	//FRONT BOTTOM
 	vertex[23].coordinate[2] = 0.5f;
-	//============================================
+	//BOTTOM FACE
 	vertex[24].coordinate[0] = -0.5f;
-	vertex[24].coordinate[1] = -0.5f;
+	vertex[24].coordinate[1] = -0.5f;	//LEFT BACK
 	vertex[24].coordinate[2] = -0.5f;
 
 	vertex[25].coordinate[0] = 0.5f;
-	vertex[25].coordinate[1] = -0.5f;		// left wall
+	vertex[25].coordinate[1] = -0.5f;	//RIGHT BACK		
 	vertex[25].coordinate[2] = -0.5f;
 
 	vertex[26].coordinate[0] = 0.5f;
-	vertex[26].coordinate[1] = -0.5f;
+	vertex[26].coordinate[1] = -0.5f;	//RIGHT FRONT
 	vertex[26].coordinate[2] = 0.5f;
 
 	vertex[27].coordinate[0] = 0.5f;
-	vertex[27].coordinate[1] = -0.5f;
+	vertex[27].coordinate[1] = -0.5f;	//RIGHT FRONT
 	vertex[27].coordinate[2] = 0.5f;
 
 	vertex[28].coordinate[0] = -0.5f;
-	vertex[28].coordinate[1] = -0.5f;
+	vertex[28].coordinate[1] = -0.5f;	//LEFT FRONT
 	vertex[28].coordinate[2] = 0.5f;
 
 	vertex[29].coordinate[0] = -0.5f;
-	vertex[29].coordinate[1] = -0.5f;
+	vertex[29].coordinate[1] = -0.5f;	//LEFT BACK
 	vertex[29].coordinate[2] = -0.5f;
-	//
+
+	//TOP FACE
 	vertex[30].coordinate[0] = -0.5f;
-	vertex[30].coordinate[1] = 0.5f;
+	vertex[30].coordinate[1] = 0.5f;	//LEFT FRONT
 	vertex[30].coordinate[2] = 0.5f;
 
 	vertex[31].coordinate[0] = 0.5f;
-	vertex[31].coordinate[1] = 0.5f;
+	vertex[31].coordinate[1] = 0.5f;	//RIGHT FRONT
 	vertex[31].coordinate[2] = 0.5f;
 
 	vertex[32].coordinate[0] = 0.5f;
-	vertex[32].coordinate[1] = 0.5f;
+	vertex[32].coordinate[1] = 0.5f;	//RIGHT BACK
 	vertex[32].coordinate[2] = -0.5f;
 
 	vertex[33].coordinate[0] = 0.5f;
-	vertex[33].coordinate[1] = 0.5f;
+	vertex[33].coordinate[1] = 0.5f;	//RIGHT BACK
 	vertex[33].coordinate[2] = -0.5f;
 
 	vertex[34].coordinate[0] = -0.5f;
-	vertex[34].coordinate[1] = 0.5f;
+	vertex[34].coordinate[1] = 0.5f;	//LEFT BACK
 	vertex[34].coordinate[2] = -0.5f;
 
 	vertex[35].coordinate[0] = -0.5f;
-	vertex[35].coordinate[1] = 0.5f;
+	vertex[35].coordinate[1] = 0.5f;	//LEFT FRONT
 	vertex[35].coordinate[2] = 0.5f;
-	/* texels */
-	//first face isnt actually drawn so doesnt matter
-	//vertex[0].texel[0] = 0.0f;	//BOTTOM LEFT
-	//vertex[0].texel[1] = 0.0f;
+	
 
-	//vertex[1].texel[0] = 0.0f;	//TOP LEFT
-	//vertex[1].texel[1] = 1.0f;
-
-	//vertex[2].texel[0] = 1.0f;	//TOP RIGHT
-	//vertex[2].texel[1] = 1.0f;
-
-	//vertex[3].texel[0] = 1.0f;	//TOP RIGHT
-	//vertex[3].texel[1] = 1.0f;
-
-	//vertex[4].texel[0] = 1.0f;	//BOTTOM RIGHT
-	//vertex[4].texel[1] = 0.0f;
-
-	//vertex[5].texel[0] = 0.0f;	//BOTTOM LEFT
-	//vertex[5].texel[1] = 0.0f;
-
-
-
-	//vertex[6].texel[0] = 0.75f;	//BOTTOM LEFT
-	//vertex[6].texel[1] = 0.25f;
-
-	//vertex[7].texel[0] = 0.75f;	//TOP LEFT
-	//vertex[7].texel[1] = 0.5f;
-
-	//vertex[8].texel[0] = 1.0f;	//TOP RIGHT
-	//vertex[8].texel[1] = 0.5f;
-
-	//vertex[9].texel[0] = 1.0f;	//TOP RIGHT
-	//vertex[9].texel[1] = 0.5f;
-
-	//vertex[10].texel[0] = 1.0f;	//BOTTOM RIGHT
-	//vertex[10].texel[1] = 0.25f;
-
-	//vertex[11].texel[0] = 0.75;	//BOTTOM LEFT
-	//vertex[11].texel[1] = 0.25f;
-
-
-	//vertex[12].texel[0] = 0.0f;	//BOTTOM LEFT
-	//vertex[12].texel[1] = 0.0f;
-
-	//vertex[13].texel[0] = 0.0f;	//TOP LEFT
-	//vertex[13].texel[1] = 1.0f;
-
-	//vertex[14].texel[0] = 1.0f;	//TOP RIGHT
-	//vertex[14].texel[1] = 1.0f;
-
-	//vertex[15].texel[0] = 1.0f;	//TOP RIGHT
-	//vertex[15].texel[1] = 1.0f;
-
-	//vertex[16].texel[0] = 1.0f;	//BOTTOM RIGHT
-	//vertex[16].texel[1] = 0.0f;
-
-	//vertex[17].texel[0] = 0.0f;	//BOTTOM LEFT
-	//vertex[17].texel[1] = 0.0f;
-
+	/* SETTING TEXELS */
 	int startIndex = 0;
 	setTexels(sf::Vector2f(0.125, 0.375), (startIndex + (6 * 0)));// sides
 	setTexels(sf::Vector2f(0.375, 0.375), (startIndex + (6 * 1)));
@@ -301,12 +249,6 @@ void Game::initialize()
 
 	setTexels(sf::Vector2f(0.375, 0.125), (startIndex + (6 * 5)));// bottom
 
-
-	/*for (int i = 0; i < 36; i++)
-	{
-		vertex[i].texel[0] = 0.5;
-		vertex[i].texel[1] = 0.5;
-	}*/
 
 	/*Index of Poly / Triangle to Draw */
 	for (int i = 0; i < sizeof(triangles); i++)
@@ -447,6 +389,13 @@ void Game::initialize()
 	colorID = glGetAttribLocation(progID, "sv_color");
 	texelID = glGetAttribLocation(progID, "sv_texel");
 	textureID = glGetUniformLocation(progID, "f_texture");
+
+	/* Culling bizzz */
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+	glEnable(GL_CULL_FACE);
+	//glFrontFace(GL_CCW);
+	//glCullFace(GL_FRONT);
 }
 
 void Game::update()
@@ -491,11 +440,6 @@ void Game::render()
 #if (DEBUG >= 2)
 	DEBUG_MSG("Drawing...");
 #endif
-
-	/* Culling bizzz */
-	/*glEnable(GL_CULL_FACE);
-	glFrontFace(GL_CW);
-	glCullFace(GL_FRONT);*/
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
